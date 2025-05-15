@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore San Francisco, CA</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #6a1b9a,
+          #2196f3
+        ); /* Purple and Blue gradient */
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInUp 1.5s ease-out;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 1.8s ease-out;
+      }
+
+      .cta-button {
+        padding: 15px 30px;
+        background: #fff;
+        color: #6a1b9a;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #6a1b9a;
+        color: white;
+      }
+
+      .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        animation: bubbleEffect 5s infinite;
+      }
+
+      @keyframes bubbleEffect {
+        0% {
+          transform: translateY(100%) scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          transform: translateY(-50%) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100%) scale(0.5);
+          opacity: 0;
+        }
+      }
+
+      /* Wave animation */
+      .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: waveMotion 4s infinite linear;
+      }
+
+      @keyframes waveMotion {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* City attractions section */
+      #attractions {
+        padding: 50px 20px;
+        display: flex;
+        justify-content: space-around;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .attraction {
+        width: 30%;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .attraction:hover {
+        transform: scale(1.05);
+      }
+
+      .attraction img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* Coffee Recommendations Section */
+      #coffee-recommendations {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 50px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      #coffee-recommendations h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        color: #fff;
+      }
+
+      #coffee-recommendations p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #fff;
+      }
+
+      #coffee-recommendations a {
+        padding: 15px 30px;
+        background: #fff;
+        color: #6a1b9a;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      }
+
+      #coffee-recommendations a:hover {
+        background: #6a1b9a;
+        color: white;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+      }
+
+      footer p {
+        font-size: 1.2rem;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        #attractions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .attraction {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Explore San Francisco, CA</h1>
+      <p>Your next adventure awaits!</p>
+      <a href="#attractions" class="cta-button">Start Exploring</a>
+    </section>
+
+    <!-- Floating Bubbles -->
+    <div class="bubbles">
+      <div
+        class="bubble"
+        style="width: 50px; height: 50px; left: 20%; animation-duration: 5s"
+      ></div>
+      <div
+        class="bubble"
+        style="width: 60px; height: 60px; left: 50%; animation-duration: 6s"
+      ></div>
+      <div
+        class="bubble"
+        style="width: 40px; height: 40px; left: 80%; animation-duration: 7s"
+      ></div>
+      <div
+        class="bubble"
+        style="width: 55px; height: 55px; left: 35%; animation-duration: 8s"
+      ></div>
+      <div
+        class="bubble"
+        style="width: 65px; height: 65px; left: 10%; animation-duration: 6s"
+      ></div>
+    </div>
+
+    <!-- Wave Section -->
+    <div class="wave"></div>
+
+    <!-- Attractions Section -->
+    <section id="attractions">
+      <div class="attraction">
+        <img
+          src="https://drupal-prod.visitcalifornia.com/sites/default/files/styles/fluid_1920/public/VCW_D_SFcity_FishermanWharf_1280x642_sized.jpg.webp?itok=b6BioIfd"
+          alt="Fisherman's Wharf"
+        />
+        <h3>Fisherman's Wharf</h3>
+        <p>
+          Vibrant waterfront area known for seafood, shopping, and attractions.
+        </p>
+      </div>
+      <div class="attraction">
+        <img
+          src="https://cdn.britannica.com/95/94195-050-FCBF777E/Golden-Gate-Bridge-San-Francisco.jpg"
+          alt="Golden Gate Bridge"
+        />
+        <h3>Golden Gate Bridge</h3>
+        <p>Iconic suspension bridge offering stunning views of the bay.</p>
+      </div>
+      <div class="attraction">
+        <img
+          src="https://cdn.britannica.com/24/189024-050-128AB341/Cell-block-Alcatraz-Island-San-Francisco-Bay.jpg"
+          alt="Alcatraz Island"
+        />
+        <h3>Alcatraz Island</h3>
+        <p>
+          Explore the notorious prison and enjoy stunning views of San Francisco
+          Bay.
+        </p>
+      </div>
+    </section>
+
+    <!-- Coffee Recommendations Section -->
+    <section id="coffee-recommendations">
+      <h2>Coffee Recommendations</h2>
+      <p>
+        Looking for the best coffee spots in San Francisco? Check out these
+        amazing coffee roasters:
+      </p>
+      <p>
+        <strong>Andytown Coffee Roasters</strong> - A local favorite known for
+        their delicious brews.
+      </p>
+      <a
+        href="https://www.timeout.com/san-francisco/restaurants/andytown-coffee-roasters"
+        target="_blank"
+        >Discover Andytown Coffee Roasters</a
+      >
+      <p>
+        <strong>Equator Coffees</strong> - One of the best places in SF to get
+        specialty coffee and enjoy the local vibes.
+      </p>
+      <a
+        href="https://www.timeout.com/san-francisco/restaurants/equator"
+        target="_blank"
+        >Discover Equator Coffees</a
+      >
+      <p>
+        <strong>Flywheel Coffee Roasters</strong> - Known for their exceptional
+        roasts and cozy atmosphere.
+      </p>
+      <a
+        href="https://www.timeout.com/san-francisco/restaurants/flywheel"
+        target="_blank"
+        >Discover Flywheel Coffee Roasters</a
+      >
+      <p>
+        <strong>Ritual Coffee Roasters</strong> - Known for their focus on
+        quality and sustainability.
+      </p>
+      <a
+        href="https://www.timeout.com/san-francisco/restaurants/ritual-coffee-roasters"
+        target="_blank"
+        >Discover Ritual Coffee Roasters</a
+      >
+      <p>
+        <strong>Blue Bottle Coffee</strong> - Famous for their meticulously
+        crafted coffee and popular cafes in SF.
+      </p>
+      <a
+        href="https://www.timeout.com/san-francisco/restaurants/blue-bottle-coffee"
+        target="_blank"
+        >Discover Blue Bottle Coffee</a
+      >
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Explore San Francisco | Made with love by Tori C</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ctaButton = document.querySelector(".cta-button");
+
+        // Smooth scroll to Attractions section on CTA button click
+        ctaButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .querySelector("#attractions")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
